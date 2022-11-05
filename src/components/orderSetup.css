@@ -7,7 +7,7 @@ body {
 }
 
 .page-content {
-  min-height: 85vh 
+  min-height: 85vh;
 }
 
 .order-form-container {
@@ -40,4 +40,12 @@ body {
 .logo-svg svg {
   height: 128px;
   width: 100%;
+}
+
+.page-content button {
+  height: 48px;
+}
+
+.address-button {
+  margin-top: 32px;
 }

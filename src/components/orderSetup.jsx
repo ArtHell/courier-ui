@@ -48,11 +48,11 @@ export const OrderSetup = (props) => {
       <Box display={'flex'} flexDirection={'column'} paddingTop={'80px'}>
         <div className="logo-svg"><LogoSvg /></div>
         <div className="form-field">
-          <Typography variant="body1" fontWeight={800}>Before getting started...</Typography>
+          <Typography variant="body1" fontWeight={800} marginBottom={4}>Before getting started...</Typography>
           <Input id="address" required type="address" fullWidth value={address} onChange={(e) => { setAddress(e.target.value) }} placeholder="Enter your address" />
         </div>
-        <div className="form-field">
-          <Button variant="contained" onClick={() => setStep(1)}>Continue</Button>
+        <div className="form-field address-button">
+          <Button fullWidth variant="contained" onClick={() => setStep(1)}>Continue</Button>
         </div>
       </Box>
     )
@@ -82,7 +82,7 @@ export const OrderSetup = (props) => {
         </div>
 
         <div className="form-field">
-          <Button variant="contained" onClick={() => setStep(2)}>Continue</Button>
+          <Button fullWidth variant="contained" onClick={() => setStep(2)}>Continue</Button>
         </div>
       </>
     )
@@ -106,7 +106,7 @@ export const OrderSetup = (props) => {
         </div>
 
         <div className="form-field">
-          <Button variant="contained" onClick={() => setStep(3)}>Continue</Button>
+          <Button fullWidth variant="contained" onClick={() => setStep(3)}>Continue</Button>
         </div>
       </>
     )
@@ -130,7 +130,7 @@ export const OrderSetup = (props) => {
           </div>
         </div>
         <div className="form-field">
-          <Button variant="contained" onClick={() => makeOrder()}>Continue</Button>
+          <Button fullWidth variant="contained" onClick={() => makeOrder()}>Continue</Button>
         </div>
       </>
     )

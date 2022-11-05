@@ -80,11 +80,11 @@ export const BuyerSetup = (props) => {
       <Box display={'flex'} flexDirection={'column'} paddingTop={'80px'}>
         <div className="logo-svg"><LogoSvg /></div>
         <div className="form-field">
-          <Typography variant="body1" fontWeight={800}>Before getting started...</Typography>
+          <Typography variant="body1" fontWeight={800} marginBottom={4}>Before getting started...</Typography>
           <Input required id="address" type="address" fullWidth value={address} onChange={(e) => { setAddress(e.target.value) }} placeholder="Enter your address" />
         </div>
-        <div className="form-field">
-          <Button variant="contained" onClick={() => saveAddress()}>Continue</Button>
+        <div className="form-field address-button">
+          <Button variant="contained" fullWidth onClick={() => saveAddress()}>Continue</Button>
         </div>
       </Box>
     )
@@ -114,7 +114,7 @@ export const BuyerSetup = (props) => {
         </div>
 
         <div className="form-field">
-          <Button variant="contained" onClick={() => saveInfo()}>Continue</Button>
+          <Button fullWidth variant="contained" onClick={() => saveInfo()}>Continue</Button>
         </div>
       </>
     )
@@ -149,7 +149,7 @@ export const BuyerSetup = (props) => {
             <Input id="packageFee" inputProps={{ "min": "0.00", "max": "10000.00", "step": "0.01" }} fullWidth value={fee} disabled />
         </div>
         <div className="form-field">
-          <Button variant="contained" onClick={() => setStep(3)}>Confirm</Button>
+          <Button fullWidth variant="contained" onClick={() => setStep(3)}>Confirm</Button>
         </div>
       </>
     )
@@ -181,7 +181,7 @@ export const BuyerSetup = (props) => {
         </div>
 
         <div className="form-field">
-          <Button variant="contained" onClick={() => postOrder()}>Confirm</Button>
+          <Button fullWidth variant="contained" onClick={() => postOrder()}>Confirm</Button>
         </div>
       </>
     )
