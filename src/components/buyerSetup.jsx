@@ -126,7 +126,7 @@ export const BuyerSetup = (props) => {
         <Typography variant="h6" sx={{ 'marginTop': '20px' }}>Package Information</Typography>
         <div className="form-field">
             <InputLabel htmlFor="packageId">Package ID</InputLabel>
-            <Input id="packageId" inputProps={{ "min": "0.00", "max": "10000.00", "step": "0.01" }} fullWidth value={id} />
+            <Input disabled id="packageId" inputProps={{ "min": "0.00", "max": "10000.00", "step": "0.01" }} fullWidth value={id} />
         </div>
         <div className="form-field">
           <InputLabel htmlFor="rec-name">Size of the package</InputLabel>
