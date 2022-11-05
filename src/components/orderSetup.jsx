@@ -33,7 +33,7 @@ export const OrderSetup = (props) => {
         role: 'seller',
         address: address,
         name: name,
-        mobile: phone,
+        mobile: `+${phone}`,
       },
       buyer: null,
       accountNumber: bankAccount,
