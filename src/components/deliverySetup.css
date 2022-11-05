@@ -1,0 +1,31 @@
+body {
+  min-height: 100vh;
+  background: rgb(54, 131, 163);
+  background: linear-gradient(146deg, rgba(255, 255, 255, 1) 0%, rgb(68, 193, 228) 20%, rgb(31, 135, 180) 90%);
+  background-repeat: no-repeat;
+  background-size: auto;
+}
+
+.page-content {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.order-form-container {
+  margin-top: 40px;
+  padding-top: 20px;
+  padding-bottom: 40px;
+  box-shadow: rgb(0 0 0 / 6%) 0px 0px 1rem 0px, rgb(0 0 0 / 12%) 0px 1rem 1rem 0px;
+  border-radius: 8px;
+  background: white;
+}
+
+.form-field {
+  margin-top: 16px;
+}
+
+.info {
+  padding: 4px;
+  background-color: #f7f7f7;
+  border-radius: 8px;
+}
