@@ -7,16 +7,15 @@ body {
 }
 
 .page-content {
-  height: 85vh 
+  min-height: 85vh 
 }
 
 .order-form-container {
   padding-top: 20px;
-  padding-bottom: 40px;
   box-shadow: rgb(0 0 0 / 6%) 0px 0px 1rem 0px, rgb(0 0 0 / 12%) 0px 1rem 1rem 0px;
   border-radius: 8px;
   background: white;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .form-field {

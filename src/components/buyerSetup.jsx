@@ -182,7 +182,7 @@ export const BuyerSetup = (props) => {
         </div>
 
         <div className="form-field">
-          <Button variant="contained" onClick={() => setStep(4)}>Confirm</Button>
+          <Button variant="contained" onClick={() => postOrder()}>Confirm</Button>
         </div>
       </>
     )
