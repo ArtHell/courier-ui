@@ -47,7 +47,7 @@ export const OrderSetup = (props) => {
         <div className="logo-svg"><LogoSvg /></div>
         <div className="form-field">
           <Typography variant="body1" fontWeight={800}>Before getting started...</Typography>
-          <Input id="address" type="address" fullWidth value={email} onChange={(e) => { setAddress(e.target.value) }} placeholder="Enter your address" />
+          <Input id="address" type="address" fullWidth value={address} onChange={(e) => { setAddress(e.target.value) }} placeholder="Enter your address" />
         </div>
         <div className="form-field">
           <Button variant="contained" onClick={() => setStep(1)}>Continue</Button>
