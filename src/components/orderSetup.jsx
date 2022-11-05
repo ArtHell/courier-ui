@@ -4,7 +4,6 @@ import './orderSetup.css'
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
 import { OrderSteps } from "./orderSteps"
-import { useNavigate } from "react-router-dom"
 import { createOrder } from "../api/courier.api"
 import ContentCopyIcon from '@mui/icons-material/ContentCopyRounded';
 import { ReactComponent as BoxSvg } from '../img/box.svg';
@@ -24,8 +23,6 @@ export const OrderSetup = (props) => {
   const [length, setLength] = React.useState('');
   const [orderId, setOrderId] = React.useState('');
   const [open, setOpen] = React.useState(false);
-
-  const navigate = useNavigate();
 
   const makeOrder = () => {
     const order = {
@@ -52,7 +49,7 @@ export const OrderSetup = (props) => {
         <div className="logo-svg"><LogoSvg /></div>
         <div className="form-field">
           <Typography variant="body1" fontWeight={800}>Before getting started...</Typography>
-          <Input id="address" type="address" fullWidth value={address} onChange={(e) => { setAddress(e.target.value) }} placeholder="Enter your address" />
+          <Input id="address" required type="address" fullWidth value={address} onChange={(e) => { setAddress(e.target.value) }} placeholder="Enter your address" />
         </div>
         <div className="form-field">
           <Button variant="contained" onClick={() => setStep(1)}>Continue</Button>
@@ -67,15 +64,16 @@ export const OrderSetup = (props) => {
         <Typography variant="h6" sx={{ 'marginTop': '20px' }}>Your information</Typography>
         <div className="form-field">
           <InputLabel htmlFor="name">Name</InputLabel>
-          <Input id="name" fullWidth value={name} onChange={(e) => { setName(e.target.value) }} placeholder="Enter your name" />
+          <Input required id="name" fullWidth value={name} onChange={(e) => { setName(e.target.value) }} placeholder="Enter your name" />
         </div>
         <div className="form-field">
           <InputLabel htmlFor="email">Email</InputLabel>
-          <Input id="email" type="email" fullWidth value={email} onChange={(e) => { setEmail(e.target.value) }} placeholder="Enter your email" />
+          <Input required id="email" type="email" fullWidth value={email} onChange={(e) => { setEmail(e.target.value) }} placeholder="Enter your email" />
         </div>
         <div className="form-field">
           <InputLabel htmlFor="phone">Phone number</InputLabel>
           <PhoneInput
+            required
             id="phone"
             country={'us'}
             value={phone}
@@ -96,15 +94,15 @@ export const OrderSetup = (props) => {
         <Typography variant="h6" sx={{ 'marginTop': '20px' }}>Payment information</Typography>
         <div className="form-field">
           <InputLabel htmlFor="rec-name">Name of the recepient</InputLabel>
-          <Input id="rec-name" fullWidth value={accountName} onChange={(e) => { setAccountName(e.target.value) }} placeholder="Enter your name" />
+          <Input required id="rec-name" fullWidth value={accountName} onChange={(e) => { setAccountName(e.target.value) }} placeholder="Enter your name" />
         </div>
         <div className="form-field">
           <InputLabel htmlFor="account">Account number</InputLabel>
-          <Input id="account" fullWidth value={bankAccount} onChange={(e) => { setBankAccount(e.target.value) }} placeholder="Enter your bank account" />
+          <Input required id="account" fullWidth value={bankAccount} onChange={(e) => { setBankAccount(e.target.value) }} placeholder="Enter your bank account" />
         </div>
         <div className="form-field">
           <InputLabel htmlFor="item-price">Price of the package ($)</InputLabel>
-          <Input id="item-price" type="number" inputProps={{ "min": "0.00", "max": "10000.00", "step": "0.01" }} fullWidth value={itemPrice} onChange={(e) => { setItemPrice(e.target.value) }} />
+          <Input required id="item-price" type="number" inputProps={{ "min": "0.00", "max": "10000.00", "step": "0.01" }} fullWidth value={itemPrice} onChange={(e) => { setItemPrice(e.target.value) }} />
         </div>
 
         <div className="form-field">
@@ -122,13 +120,13 @@ export const OrderSetup = (props) => {
         <div className="form-field">
           <InputLabel htmlFor="rec-name">Size of the package</InputLabel>
           <div className="form-field">
-            <Input id="height" type="number" inputProps={{ "min": "0.00", "max": "10000.00", "step": "0.01" }} fullWidth value={height} onChange={(e) => { setHeight(e.target.value) }} placeholder='Height' />
+            <Input required id="height" type="number" inputProps={{ "min": "0.00", "max": "10000.00", "step": "0.01" }} fullWidth value={height} onChange={(e) => { setHeight(e.target.value) }} placeholder='Height' />
           </div>
           <div className="form-field">
-            <Input id="width" type="number" inputProps={{ "min": "0.00", "max": "10000.00", "step": "0.01" }} fullWidth value={width} onChange={(e) => { setWidth(e.target.value) }} placeholder='Width' />
+            <Input required id="width" type="number" inputProps={{ "min": "0.00", "max": "10000.00", "step": "0.01" }} fullWidth value={width} onChange={(e) => { setWidth(e.target.value) }} placeholder='Width' />
           </div>
           <div className="form-field">
-            <Input id="length" type="number" inputProps={{ "min": "0.00", "max": "10000.00", "step": "0.01" }} fullWidth value={length} onChange={(e) => { setLength(e.target.value) }} placeholder='Length' />
+            <Input required id="length" type="number" inputProps={{ "min": "0.00", "max": "10000.00", "step": "0.01" }} fullWidth value={length} onChange={(e) => { setLength(e.target.value) }} placeholder='Length' />
           </div>
         </div>
         <div className="form-field">

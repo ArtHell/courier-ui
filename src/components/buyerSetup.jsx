@@ -48,7 +48,7 @@ export const BuyerSetup = (props) => {
       role: 'buyer',
       address: address,
       name: name,
-      mobile: phone,
+      mobile: `+${phone}`,
     };
 
     return addBuyerInfo(id, seller);
@@ -81,7 +81,7 @@ export const BuyerSetup = (props) => {
         <div className="logo-svg"><LogoSvg /></div>
         <div className="form-field">
           <Typography variant="body1" fontWeight={800}>Before getting started...</Typography>
-          <Input id="address" type="address" fullWidth value={address} onChange={(e) => { setAddress(e.target.value) }} placeholder="Enter your address" />
+          <Input required id="address" type="address" fullWidth value={address} onChange={(e) => { setAddress(e.target.value) }} placeholder="Enter your address" />
         </div>
         <div className="form-field">
           <Button variant="contained" onClick={() => saveAddress()}>Continue</Button>
@@ -96,15 +96,16 @@ export const BuyerSetup = (props) => {
         <Typography variant="h6" sx={{ 'marginTop': '20px' }}>Your information</Typography>
         <div className="form-field">
           <InputLabel htmlFor="name">Name</InputLabel>
-          <Input id="name" fullWidth value={name} onChange={(e) => { setName(e.target.value) }} placeholder="Enter your name" />
+          <Input required id="name" fullWidth value={name} onChange={(e) => { setName(e.target.value) }} placeholder="Enter your name" />
         </div>
         <div className="form-field">
           <InputLabel htmlFor="email">Email</InputLabel>
-          <Input id="email" type="email" fullWidth value={email} onChange={(e) => { setEmail(e.target.value) }} placeholder="Enter your email" />
+          <Input required id="email" type="email" fullWidth value={email} onChange={(e) => { setEmail(e.target.value) }} placeholder="Enter your email" />
         </div>
         <div className="form-field">
           <InputLabel htmlFor="phone">Phone number</InputLabel>
           <PhoneInput
+            required
             id="phone"
             country={'us'}
             value={phone}
@@ -130,22 +131,22 @@ export const BuyerSetup = (props) => {
         <div className="form-field">
           <InputLabel htmlFor="rec-name">Size of the package</InputLabel>
           <div className="form-field">
-            <Input id="height" type="number" inputProps={{ "min": "0.00", "max": "10000.00", "step": "0.01" }} fullWidth value={height} />
+            <Input required id="height" type="number" inputProps={{ "min": "0.00", "max": "10000.00", "step": "0.01" }} fullWidth value={height} disabled />
           </div>
           <div className="form-field">
-            <Input id="width" type="number" inputProps={{ "min": "0.00", "max": "10000.00", "step": "0.01" }} fullWidth value={width} />
+            <Input required id="width" type="number" inputProps={{ "min": "0.00", "max": "10000.00", "step": "0.01" }} fullWidth value={width} disabled />
           </div>
           <div className="form-field">
-            <Input id="length" type="number" inputProps={{ "min": "0.00", "max": "10000.00", "step": "0.01" }} fullWidth value={length} />
+            <Input required id="length" type="number" inputProps={{ "min": "0.00", "max": "10000.00", "step": "0.01" }} fullWidth value={length} disabled />
           </div>
         </div>
         <div className="form-field">
-            <InputLabel htmlFor="packageId">Price</InputLabel>
-            <Input id="price" inputProps={{ "min": "0.00", "max": "10000.00", "step": "0.01" }} fullWidth value={itemPrice} />
+            <InputLabel htmlFor="price">Price</InputLabel>
+            <Input required id="price" inputProps={{ "min": "0.00", "max": "10000.00", "step": "0.01" }} fullWidth value={itemPrice} disabled />
         </div>
         <div className="form-field">
-            <InputLabel htmlFor="packageId">Delivery</InputLabel>
-            <Input id="packageId" inputProps={{ "min": "0.00", "max": "10000.00", "step": "0.01" }} fullWidth value={fee} />
+            <InputLabel htmlFor="packageFee">Delivery</InputLabel>
+            <Input id="packageFee" inputProps={{ "min": "0.00", "max": "10000.00", "step": "0.01" }} fullWidth value={fee} disabled />
         </div>
         <div className="form-field">
           <Button variant="contained" onClick={() => setStep(3)}>Confirm</Button>
@@ -160,21 +161,21 @@ export const BuyerSetup = (props) => {
         <Typography variant="h6" sx={{ 'marginTop': '20px' }}>Payment information</Typography>
         <div className="form-field">
           <InputLabel htmlFor="cardholder">Cardholder</InputLabel>
-          <Input id="cardholder" fullWidth value={accountName} onChange={(e) => { setAccountName(e.target.value) }} placeholder="Enter name" />
+          <Input id="cardholder" required fullWidth value={accountName} onChange={(e) => { setAccountName(e.target.value) }} placeholder="Enter name" />
         </div>
         <div className="form-field">
           <InputLabel htmlFor="card-number">Card number</InputLabel>
-          <Input id="card-number" fullWidth value={cardNumber} onChange={(e) => { setCardNumber(e.target.value) }} placeholder="Enter card number" />
+          <Input id="card-number" required fullWidth value={cardNumber} onChange={(e) => { setCardNumber(e.target.value) }} placeholder="Enter card number" />
         </div>
         <div className="form-field">
           <Box display={'flex'} gap={'24px'} justifyContent={'space-between'}>
             <div>
             <InputLabel htmlFor="expireDate">Expiry date</InputLabel>
-          <Input id="expireDate" fullWidth value={expireDate} onChange={(e) => { setExpireDate(e.target.value) }} placeholder="MM/YY" />
+          <Input id="expireDate" required fullWidth value={expireDate} onChange={(e) => { setExpireDate(e.target.value) }} placeholder="MM/YY" />
             </div>
           <div>
           <InputLabel htmlFor="cvc">CVC</InputLabel>
-          <Input id="cvc" fullWidth value={cvcCode} onChange={(e) => { setCvcCode(e.target.value) }} placeholder="123" />
+          <Input id="cvc" required fullWidth value={cvcCode} onChange={(e) => { setCvcCode(e.target.value) }} placeholder="123" />
           </div>
           </Box>
         </div>
