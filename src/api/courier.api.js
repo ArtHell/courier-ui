@@ -9,18 +9,19 @@ export const testApi = async () => {
 
 export const getOrder = async (payload) => {
   const result = await axios.post(`${baseURL}orders/`, payload);
-  return result || {code: 'randomHash'};
+  return result || { code: 'randomHash' };
 }
 
 export const createOrder = async (payload) => {
   let result = {};
   try {
     result = await axios.post(`${baseURL}orders/`, payload);
+    console.log(result);
   } catch {
-    result = {code: 'randomHash'};
+    result = { data: { token: 'randomHash' } };
   }
   finally {
-    return result;
+    return result.data;
   }
 }
 

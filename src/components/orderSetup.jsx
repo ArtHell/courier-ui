@@ -14,8 +14,6 @@ export const OrderSetup = (props) => {
   const [email, setEmail] = React.useState('');
   const [phone, setPhone] = React.useState('');
   const [address, setAddress] = React.useState('');
-  const [adressFlatNumber, setAddressFlatNumber] = React.useState('');
-  const [itemDescription, setItemDescription] = React.useState('');
   const [itemPrice, setItemPrice] = React.useState('');
   const [step, setStep] = React.useState(0);
   const [name, setName] = React.useState('');
@@ -31,12 +29,19 @@ export const OrderSetup = (props) => {
 
   const makeOrder = () => {
     const order = {
-      email: email,
-      phone: phone,
-      address: `${address} ${adressFlatNumber}`,
-      itemDescription: itemDescription,
-      itemPrice: itemPrice
-    };
+      seller: {
+        role: 'buyer',
+        address: address,
+        name: name,
+        mobile: phone,
+      },
+      buyer: null,
+      accountNumber: bankAccount,
+      price: itemPrice,
+      height: height,
+      width: width,
+      length: length,
+    }
 
     createOrder(order).then(result => { setOrderId(result.token); setStep(4); });
   }
@@ -145,8 +150,8 @@ export const OrderSetup = (props) => {
           </Box>
         </div>
         <div className="form-field">
-        <Typography variant="body2">Copy this link and send it to the buyer. After buyer will successfully pay for the order, you will be able to track the order status.</Typography>
-        <Typography variant="body2">Thank you for choosing Walitolt!</Typography>
+          <Typography variant="body2">Copy this link and send it to the buyer. After buyer will successfully pay for the order, you will be able to track the order status.</Typography>
+          <Typography variant="body2">Thank you for choosing Walitolt!</Typography>
         </div>
       </>
     )
