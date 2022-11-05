@@ -26,8 +26,6 @@ export const BuyerSetup = (props) => {
   const [cvcCode, setCvcCode] = React.useState('');
   const [expireDate, setExpireDate] = React.useState('');
   const [fee, setDeliveryFee] = React.useState('');
-
-  const navigate = useNavigate();
   const { id } = useParams();
 
   React.useEffect(() => {
@@ -69,7 +67,7 @@ export const BuyerSetup = (props) => {
 
   const postOrder = () => {
     deliverOrder(id).then((result) => {
-      navigate(result.url);
+      window.location.href = result.tracking.url;
     });
   }
 
