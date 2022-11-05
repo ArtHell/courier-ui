@@ -1,6 +1,30 @@
 import axios from "axios";
 
+const baseURL = 'https://courier-api-ktx6.vercel.app/';
+
 export const testApi = async () => {
-  const result = await axios.get('https://courier-api-gray.vercel.app/');
+  const result = await axios.get(baseURL);
   return result;
+}
+
+export const getOrder = async (payload) => {
+  const result = await axios.post(`${baseURL}orders/`, payload);
+  return result || {code: 'randomHash'};
+}
+
+export const createOrder = async (payload) => {
+  let result = {};
+  try {
+    result = await axios.post(`${baseURL}orders/`, payload);
+  } catch {
+    result = {code: 'randomHash'};
+  }
+  finally {
+    return result;
+  }
+}
+
+export const addBuyerInfo = async (id, payload) => {
+  const result = await axios.put(`${baseURL}orders/${id}`, payload);
+  return result || {};
 }

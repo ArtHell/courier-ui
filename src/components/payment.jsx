@@ -5,10 +5,8 @@ import 'react-phone-input-2/lib/style.css'
 import { DeliverySteps } from "./deliverySteps"
 
 export const Payment = (props) => {
-
   return (
     <Box className="page-content">
-      
       <Container maxWidth="md" className="order-form-container">
       <DeliverySteps activeStep={1} />
         <div className="">
@@ -16,6 +14,5 @@ export const Payment = (props) => {
         </div>
       </Container>
     </Box>
-
   )
 }
