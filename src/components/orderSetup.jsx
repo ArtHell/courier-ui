@@ -30,7 +30,7 @@ export const OrderSetup = (props) => {
   const makeOrder = () => {
     const order = {
       seller: {
-        role: 'buyer',
+        role: 'seller',
         address: address,
         name: name,
         mobile: phone,
