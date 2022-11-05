@@ -38,7 +38,7 @@ export const OrderSetup = (props) => {
       itemPrice: itemPrice
     };
 
-    createOrder(order).then(result => { setOrderId(result.code); setStep(4); });
+    createOrder(order).then(result => { setOrderId(result.token); setStep(4); });
   }
 
   const renderStepOne = () => {
